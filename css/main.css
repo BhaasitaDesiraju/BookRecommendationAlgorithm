@@ -1,0 +1,166 @@
+
+.body {
+    width: 100%;
+    position: relative;
+    font-size: 1.4rem;
+    background-color: #fff;
+}
+.vbox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.vbox-center {
+    align-content: center;
+    justify-content: center;
+}
+
+.vbox-start {
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.hbox{
+    display: flex;
+    flex-direction: row;
+}
+
+.hbox-left {
+    justify-content: flex-start;
+}
+
+.hbox-right {
+    justify-content: flex-end;
+}
+
+.hbox-center {
+    display:flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.login-content-area {
+    background-image: url("../images/main-bg.svg");
+    background-size: cover;
+    background-position: 50%;
+    height:100%;
+    margin: auto;
+}
+.login-form-container {
+    margin: 20px auto;
+    border:1px solid #ffffff;
+    width: 400px;
+    min-height: 300px;
+    padding: 1rem 0 2rem;
+    background-color: #ffffff;
+}
+.container
+{
+    padding: 16px;
+}
+
+.form-label {
+    margin:0px 8px;
+}
+
+.button
+{
+    background-color:#fff;
+    border:1px solid #ccc;
+    color:#333333;
+    padding: 14px 20px;
+    margin: 8px auto;
+    cursor: pointer;
+    width:200px;
+}
+
+.button:hover {
+    background-color: #34adde;
+    color: #ffffff;
+}
+
+span.psw
+{
+    float: center;
+    padding-top: 16px;
+}
+
+.logo {
+    width: 45%;
+    height: 10%;
+}
+
+.logo-container {
+    margin-bottom: 32px;
+}
+
+.form-field {
+    height:24px;
+    border: 0 solid #ccc;
+    border-bottom-width:1px;
+    margin:16px 8px;
+}
+
+.form-field:focus {
+    border: 0 solid #34adde;
+    border-bottom-width: 1px;
+    outline:none;
+}
+
+.error {
+    color: #f00;
+    margin:16px 8px;
+}
+
+.tilelayout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 15px;
+}
+
+.tile {
+    margin: 8px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.right-header {
+    flex:1;
+    align-items: flex-end;
+    margin:24px;
+}
+
+.left-header {
+    flex:1;
+    align-items: flex-start;
+}
+
+.header {
+    margin:24px;
+}
+
+.signout {
+    float: right;
+}
+.signout > button {
+    cursor: pointer;
+    color: #000;
+    background-color: #ffffff;
+    border: 0;
+    font-size: 1.3rem;
+}
+
+.signout > button:hover {
+    color : #34adde;
+}
+
+.table {
+    border: solid;
+    margin: auto;
+}

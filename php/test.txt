@@ -1,0 +1,44 @@
+<div class="tilelayout">
+        <c:forEach items="${userForm}" var="tileModel">
+            <div class="tile" onclick="location.href=${tileModel.location}">
+               <img src="${tileModel.imageSource}" alt="${tileModel.altName}">
+           </div>
+       </c:forEach>
+    </div>
+	
+		   <?php 
+	   session_start();
+       $username = $_SESSION['username'];
+	   ?>
+	   
+	   <?php 
+	    include 'headerfile.php';
+	?>
+	
+	header('Cache-Control: no-cache, must-revalidate');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+
+<?php 
+	    /*var $tiles[];
+	    if($_SESSION['role'] == "student" || $_SESSION['role'] == "staff") {
+			$tiles[] = new list(["../images/myBooks.png","myBooks.php","My Books"],["../images/bookCatalog.png","bookscatalog.php","Books Catalog"],
+			           ["../images/magazineCatalog.png","magazinecatalog.php","Magazine Catalog"],["../images/newspaperCatalog.png","newspapercatalog.php","Newspaper Catalog"],
+					   ["../images/referenceSection.png","referencesection.php","Reference Section"], ["../images/wishlist.png","wishlist.php","Wishlist"],
+					   ["../images/profile.png","profile.php","Profile"], ["../images/settings.png","settings.php","Settings"],
+					   ["../images/aboutLibrary.png","aboutlibrary.php","About Library"]);
+		}
+		else if($_SESSION['role'] == "admin") {
+			$tiles[] = new list(["../images/myBooks.png","myBooks.php","My Books"],["../images/bookCatalog.png","bookscatalog.php","Books Catalog"],
+			           ["../images/magazineCatalog.png","magazinecatalog.php","Magazine Catalog"],["../images/newspaperCatalog.png","newspapercatalog.php","Newspaper Catalog"],
+					   ["../images/referenceSection.png","referencesection.php","Reference Section"],["../images/wishlist.png","wishlist.php","Wishlist"],
+					   ["../images/viewWishlist.png","viewwishlist.php","View Wishlist"], ["../images/transactions.png","transactions.php","Transactions"],
+					   ["../images/manageUsers.png","manageusers.php","Manage Users"], ["../images/profile.png","profile.php","Profile"], 
+					   ["../images/settings.png","settings.php","Settings"], ["../images/aboutLibrary.png","aboutlibrary.php","About Library"]);
+		}*/
+      ?>
+	  
+	  
+	  
+	  if(isset($_SESSION['role'])) {
+		  $role = $_SESSION['role'];
+		  }

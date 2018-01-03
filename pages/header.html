@@ -1,0 +1,13 @@
+<div class="hbox header">
+    <div class="hbox-left left-header">
+        <img style="width:50%;" src="images/logoLibrvry.svg" alt="Home" onclick="location.href='/login'">
+    </div>
+
+    <div class="hbox-right right-header">
+        <div style="float:right;">Welcome ${CURRENT_USER.username} |
+            <forms:form method="post" cssClass="signout" action="/logout" commandName="userForm">
+                <forms:button>Sign Out</forms:button>
+            </forms:form>
+        </div>
+    </div>
+</div>

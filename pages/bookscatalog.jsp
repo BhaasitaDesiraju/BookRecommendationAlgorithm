@@ -1,0 +1,75 @@
+
+<html>
+<head>
+<style>
+	body 
+	{
+		height: 1000px;
+		background: linear-gradient(135deg, #2929a3 0%,#a50d9e 69%,#d7675b 100%) fixed;
+		background-size: 100% 100%; 
+		text-align:center;
+		color:white;
+                font-size:"20";
+	}
+        img
+	{
+		border-radius: 80%;
+	}
+	.container
+	{
+		padding: 16px;
+	}
+        span.psw
+	{
+		float:center;
+		padding-top: 16px;
+	}
+        button
+	{
+		background-color:violet;
+		color:white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+	}
+	button:hover
+	{
+		opacity: 0.8;
+	}
+</style>
+</head>
+<body>
+<div class="logo">
+      	<img src="logoLibrvry.png" alt="Home" onclickstyle="width:304px;height:228px;" onclick="location.href='home.html'" >
+      	<span style="display:block; height: 30px;"></span>
+
+</div>
+<h1> Books Catalog </h1>
+<button type="button" onclick="location.href='csit.html'"><b>CSE/IT</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+<button type="button" onclick="location.href='ece.html'"><b>ECE</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+
+<button type="button" onclick="location.href='eee.html'"><b>EEE</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+<button type="button" onclick="location.href='civil.html'"><b>CIVIL</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+<button type="button" onclick="location.href='che.html'"><b>CHEMICAL</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+<button type="button" onclick="location.href='mech.html'"><b>MECHANICAL</b></button></br>
+<span style="display:block; height: 30px;"></span>
+
+
+</center>
+</div>
+</body>
+</html>
+
+
+

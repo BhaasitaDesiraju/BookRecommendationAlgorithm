@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>RVR Library Management</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<!META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+</head>
+<body>
+<div class="login-content-area vbox vbox-center">
+    <div class="login-form-container vbox-start vbox">
+        <div class="hbox-center logo-container">
+            <img src="../images/logoLibrvry.svg" class="logo" alt="Home" onclick="location.href='/'">
+        </div>
+		
+<form class="vbox vbox-center" action="../php/loginValidation.php" method="post">
+    <label class="form-label" for="username">Username</label>
+	<input class="form-field" type="text" placeholder="Enter username" id="username" name="username" required>
+
+    <label class="form-label" for="password">Password</label>
+    <input type="password" class="form-field" placeholder="Enter password" id="password" name="password" required>
+
+	<button class="button" type="submit">Login</button>
+</form>
+</div>
+</div>
+</body>
+</html>
