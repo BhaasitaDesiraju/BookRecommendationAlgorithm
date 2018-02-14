@@ -163,4 +163,6 @@ span.psw
 .table {
     border: solid;
     margin: auto;
+	border: 1px;
 }
+

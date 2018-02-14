@@ -8,11 +8,7 @@ if(isset($_POST['username']) and isset($_POST['password']))  {
  //store session data
  $_SESSION['username']=$username;
  
- //connect to the database
- $connection=mysqli_connect("localhost","root","");
- 
- //select database
- $database=mysqli_select_db($connection, "librvry");
+ include 'connection.php';
  
  $query="select * from users where username='$username' and password='$password'";
  
@@ -25,7 +21,7 @@ if(isset($_POST['username']) and isset($_POST['password']))  {
  $role=$row['role'];
  
  if($result) {
-	 if($role == "student" || $role == "staff" || $role=="admin") {
+	 if($role == "student" || $role == "staff") {
 	   header("Location: dashboard.php");
 	 }
 	 else if($role=="admin") {

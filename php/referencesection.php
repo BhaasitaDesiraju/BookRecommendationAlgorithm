@@ -9,7 +9,7 @@
 
    include 'connection.php';
 
-	$query="SELECT * FROM magazines;";
+	$query="SELECT * FROM referencesection;";
 	
 	$result=mysqli_query($connection, $query);
 	
@@ -18,18 +18,20 @@
 	 echo "<html><center>
           <table border=1 style=\"width:75%\">
            <tr>
-           <th>Magazine Number</th>
-           <th>Magazine Name</th>
-           <th>Genre</th>
+           <th>Book Number</th>
+		   <th>Department</th>
+           <th>Book Name</th>
+           <th>Author</th>
 		   <th>Publisher</th>
            </tr>";
     while ($row = $result->fetch_assoc()) {
 
 	echo "<tr>
-          <td align='center'>{$row['magazineId']}</td>
-          <td align='center'>{$row['magazineName']}</td>
-		  <td align='center'>{$row['genre']}</td>
-		  <td align='center'>{$row['publisher']}</td>
+          <td align='center'>{$row['rsbId']}</td>
+		  <td align='center'>{$row['department']}</td>
+          <td align='center'>{$row['rsBookName']}</td>
+		  <td align='center'>{$row['rsBookAuthor']}</td>
+		  <td align='center'>{$row['rsBookPublisher']}</td>
 	      </tr>";
 	} 
 	echo "</tr></center></table></html>";

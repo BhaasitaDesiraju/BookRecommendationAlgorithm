@@ -2,9 +2,14 @@
 <head>
 	<title>RVR Library Management</title>
 	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
-	<!META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
 <div class="login-content-area vbox vbox-center">
     <div class="login-form-container vbox-start vbox">
         <div class="hbox-center logo-container">

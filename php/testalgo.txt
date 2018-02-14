@@ -1,0 +1,136 @@
+<?php
+//book recommendation algorithm
+
+//connect to the database
+ $connection=mysqli_connect("localhost","root","");
+ 
+ //select database
+ $database=mysqli_select_db($connection, "librvry");
+
+//generate a list of users who borrowed a book b3
+$query1="SELECT * FROM booktransactions where `bookId`='403'";
+$borrowedUsersSet=mysqli_query($connection, $query1);
+
+
+//Fetch the result into an array
+//List of users who borrowed 403	 
+    while ($row = $borrowedUsersSet->fetch_assoc()) 
+	{	
+		//Get borrowed time of book with id 403
+		$bookBorrowedTime=$row['borrowedTime'];
+		$userId=$row['userId'];
+		//select books borrowed after b3
+		$query2 = "SELECT * FROM booktransactions where `userId`='userId' and `borrowedTime`>'$bookBorrowedTime'";
+		$eachUserSet=mysqli_query($connection, $query2);
+				  
+      
+		while ($row2 = $eachUserSet->fetch_assoc()) 
+	    {
+          //count of each book borrowed after b3
+          $queryc="SELECT `bookId`, COUNT(*) as counter from booktransactions where `bookId`= 'userId' and `borrowedTime`>'$bookBorrowedTime'";
+          $counterArray=mysqli_query($connection, $queryc);
+		  
+		  echo "<html><center>
+          <table border=1 style=\"width:75%\">";
+		  while ($rowc = $counterArray->fetch_assoc()) 
+         {
+	      echo "<tr>
+          <td align='center'>{$row['bookId']}</td>
+          <td align='center'>{$row['counter']}</td>
+	      </tr>";
+	     } 
+	echo "</tr></center></table></html>";
+	 
+	    } 
+	}
+
+	 //each book borrowed after b3
+   
+    //calculate time distance between b3 and other books borrowed after b3 for each user
+	
+	 
+//calculate avg time sequence info and no.of times that book got circulated
+
+//calculate the distance
+
+//recommend in the order of least distance to greater 
+
+?>
+
+
+//////////////
+foreach($borrowedUsersArray as $user)
+	{
+	  $baseUserId = $user['userId'];
+	  $baseBt = $user['borrowedTime'];
+      $sumBt;
+	  foreach($eachUserArray as $value)
+	  {
+		$uid=$value['userId'];
+		if($baseUserId==$uid)
+		{
+			$bid=$value['bookId'];
+			$targetBt=$value['borrowedTime'];
+			$sumBt=$sumbt+($targetbt-$baseBt);
+			//find if the bookid is present anywhere in the eachUserArray
+			
+			//find it's corresponding userId 
+			
+			//get it's borrowing time 
+			
+			//add that difference to sum
+		}
+	  }
+	}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Get borrowed time of book with id 403
+		$bookBorrowedTime=$row['borrowedTime'];
+		
+		$userId=$row['userId'];
+		
+		//select books borrowed after b3
+		$query2 = "SELECT * FROM booktransactions where `userId`='userId' and `borrowedTime`>'$bookBorrowedTime'";
+		$eachUserSet=mysqli_query($connection, $query2);
+				  
+      
+		while ($row2 = $eachUserSet->fetch_assoc()) 
+	    {
+          $query2 = "SELECT * FROM booktransactions where `userId`='{$row['userId']}' and `borrowedTime`>'$bookBorrowedTime'";
+		  $eachUserSet=mysqli_query($connection, $query2);
+		  
+		 }
+
+
+
+
+
+
+
+
+
+echo "<html><center>
+          <table border=1 style=\"width:75%\">";
+		  
+while ($row = $borrowedUsersSet->fetch_assoc()) 
+{
+	echo "<tr>
+          <td align='center'>{$row['bookId']}</td>
+          <td align='center'>{$row['borrowedTime']}</td>
+		  <td align='center'>{$row['userId']}</td>
+	      </tr>";
+	} 
+	echo "</tr></center></table></html>";
