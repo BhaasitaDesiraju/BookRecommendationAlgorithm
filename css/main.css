@@ -5,6 +5,7 @@
     font-size: 1.4rem;
     background-color: #fff;
 }
+
 .vbox {
     display: flex;
     flex-direction: column;
@@ -165,4 +166,3 @@ span.psw
     margin: auto;
 	border: 1px;
 }
-

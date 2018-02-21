@@ -8,7 +8,7 @@
 
 	if(isset($_POST['submit']))
 	{ 
-		if(preg_match("/^[  a-zA-Z]+/", $_POST['search']))
+		if(preg_match("/^[a-zA-Z]+/", $_POST['search']))
 		{ 
 			$name= $_POST['search']; 
 			//include 'connection.php';	
@@ -18,8 +18,12 @@
 			
 			//select database
 			$database=mysqli_select_db($connection, "librvry");
-				$query="SELECT * FROM booksdb where (bid LIKE '%".$name."%') OR (department LIKE '%".$name."%') OR (bookname LIKE '%".$name."%') OR (author LIKE '%".$name."%') OR (publisher LIKE '%".$name."%') order by bid;";
-
+			$query="SELECT * FROM booksdb where (bookname LIKE '% ".$name." %' OR bookname LIKE '% ".$name."') OR 
+			(author LIKE '% ".$name." %' OR author LIKE '% ".$name."') OR 
+			(publisher LIKE '% ".$name." %' OR publisher LIKE '% ".$name."') order by bid;";
+			
+			//(bid LIKE '%".$name."%') OR (department LIKE '%".$name."%') OR
+			
 			$result=mysqli_query($connection, $query);
 			
 			echo "<html><center>

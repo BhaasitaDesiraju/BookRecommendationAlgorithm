@@ -1,7 +1,68 @@
-.text {
-    font-style: 16px;
+.vbox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.vbox-center {
+    align-content: center;
+    justify-content: center;
+}
+.hbox{
+    display: flex;
+    flex-direction: row;
 }
 
-.headings {
-    font-style: bold 20px;
+.hbox-left {
+    justify-content: flex-start;
+}
+
+.hbox-right {
+    justify-content: flex-end;
+}
+
+.right-header {
+    flex:1;
+    align-items: flex-end;
+    margin:24px;
+}
+
+.left-header {
+    flex:1;
+    align-items: flex-start;
+}
+
+.signout {
+    float: right;
+}
+.signout > button {
+    cursor: pointer;
+    color: #000;
+    background-color: #ffffff;
+    border: 0;
+    font-size: 1.3rem;
+}
+
+.signout > button:hover {
+    color : #34adde;
+}
+
+
+.abttext {
+    font-size: 15px;
+	line-height: 1.5;
+	display:block;
+}
+
+.abtheadings {
+	font-size:25px;
+	font-weight:bold;
+	line-height: 1.5;
+	display:block;
+}
+
+table,td,th {    
+	font-size:15px;
+    border: solid;
+	padding: 10px;
+	border-collapse:collapse;
 }

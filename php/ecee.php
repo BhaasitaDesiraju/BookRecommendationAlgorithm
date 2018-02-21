@@ -4,8 +4,20 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
 </head>
 <body>
-<?php include 'header.php';
+<?php include 'header.php';?>
 
+<form  method="post" action="search.php"  id="searchform">
+<center>
+<pre>
+<b>Search:<b> <input type="text" style="width:500px" name="search" />
+
+<input type="submit" name="submit" value="Submit" />
+
+<pre>
+<center>
+</form>
+
+<?php
    //include 'connection.php';	
 
    //connect to the database

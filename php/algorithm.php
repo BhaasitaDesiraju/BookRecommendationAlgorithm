@@ -83,6 +83,7 @@ $bookBorrowedTime;
 	foreach($uniqueBookIds as $uqBid)
 	{
 		$avgT=0;
+		$avgT1=0;
 		 foreach($eachUserArray as $keys => $val) {
           if ($val['bookId'] == $uqBid){
 			  $uid=$val['userId'];
@@ -93,24 +94,28 @@ $bookBorrowedTime;
 			  //if user is present in borrowed list, calculate average time difference between b3 and other books
 			  if(in_array($uid, array_column($borrowedUsersArray, 'userId')))
 			  {
-				  //echo "<br>";
-				  $bid = array_search($uid, array_column($borrowedUsersArray, 'userId'));
-				  echo $bid;
 				  echo "<br>";
+				  $bid = array_search($uid, array_column($borrowedUsersArray, 'userId'));
+				  //echo $bid;
+				  //echo "<br>";
 			      $btarray=array_column($borrowedUsersArray, 'borrowedTime');
 				  $baseTime=$btarray[$bid];
 				  
-				  //calculating avg time sequence info and no.of times that book got circulated
-				 
 				  //$diffT=date_sub(strtotime($time),strtotime($baseTime));
-				  $avgT=strtotime($avgT)+(strtotime($time) - strtotime($baseTime));
-				  //print_r($avgT);
+				  //$avgT=strtotime($avgT)+(strtotime($time) - strtotime($baseTime));
+				  //echo $time = date("m/d/Y h:i:s A ",$avgT);
 				  //echo "<br>";
+				  
+                  //calculating avg time sequence info and no.of times that book got circulated & standardize t & n values
+				  $days = (strtotime($time) - strtotime($baseTime))/(60 * 60 * 24);
+				  $avgT1 = $avgT1 + $days;
+				  echo $avgT1;
+				  echo "<br>";
 			  }
           }
         }
 	}
-
+	
 //calculate the distance
 
 //recommend in the order of least distance to greatest
