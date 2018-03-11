@@ -64,19 +64,19 @@ $finalArray1=array();
 			  //if user is present in borrowed list, calculate average time difference between b3 and other books
 			  if(in_array($uid, array_column($borrowedUsersArray, 'userId')))
 			  {
-				  echo $avgT1;
-				  echo "<br>";
+				  //echo $avgT1;
+				  //echo "<br>";
 				  $bid = array_search($uid, array_column($borrowedUsersArray, 'userId'));
 			      $btarray=array_column($borrowedUsersArray, 'borrowedTime');
 				  $baseTime=$btarray[$bid];
 
                   //calculating avg time sequence info and no.of times that book got circulated 
-				  $days = (strtotime($time) - strtotime($baseTime))/(60*60);
-				  echo $days;
-				  echo "<br>";
+				  $days = (strtotime($time) - strtotime($baseTime));
+				  //echo $days;
+				  //echo "<br>";
 				  $avgT1 = $avgT1 + $days;
-				  echo $avgT1;
-				  echo "<br>";
+				  //echo $avgT1;
+				  //echo "<br>";
 			  }
 			  
           }
@@ -153,7 +153,7 @@ function sortByDistance($a, $b)
 }
 
 usort($finalArray, 'sortByDistance');
-//echo "Sorted Array: ";
-//print_r($finalArray);
+echo "Sorted Array: ";
+print_r($finalArray);
 
 ?>
