@@ -13,7 +13,7 @@ include 'header.php';
                 <img src="../images/myBooks.png" alt="My Books">
       </div>
 	  <div class="tile" onclick="location.href='bookscatalog.php'">
-                <img src="../images/bookCatalog.png" alt="Books Catalog">
+                <img src="../images/bookCatalogC.png" alt="Books Catalog">
        </div>
 	    <div class="tile" onclick="location.href='magazinecatalog.php'">
                 <img src="../images/magazineCatalog.png" alt="Magazines Catalog">
