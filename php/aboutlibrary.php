@@ -3,7 +3,7 @@
     <title>RVR Library Management</title>
     <link rel="stylesheet" type="text/css" href="../css/abt.css"/>
 </head>
-<body>
+<body bgcolor="#fcf4e8">
 <?php 
 include 'header.php'; ?>
 

@@ -3,8 +3,19 @@
     <title>RVR Library Management</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
 </head>
-<body>
-<?php include 'header.php';
+<body bgcolor="#fcf4e8">
+<?php include 'header.php';?>
+<form  method="post" action="search.php"  id="searchform">
+<center>
+<pre>
+<b>Search:</b> <input type="text" style="width:500px" name="search" />
+
+<input type="submit" name="submit" value="Submit" />
+
+</pre>
+</center>
+</form>
+<?php
 
 	if(isset($_POST['submit']))
 	{ 
@@ -20,42 +31,35 @@
 			$database=mysqli_select_db($connection, "librvry");
 			$query="SELECT * FROM booksdb where (bookname LIKE '% ".$name." %' OR bookname LIKE '% ".$name."') OR 
 			(author LIKE '% ".$name." %' OR author LIKE '% ".$name."') OR 
-			(publisher LIKE '% ".$name." %' OR publisher LIKE '% ".$name."') order by bid;";
-			
-			//(bid LIKE '%".$name."%') OR (department LIKE '%".$name."%') OR
+			(publisher LIKE '% ".$name." %' OR publisher LIKE '% ".$name."')";
 			
 			$result=mysqli_query($connection, $query);
 			
-			echo "<html><center>
-			<table border=1 style='width:75%'>
-			<tr>
-			<th>Book Number</th>
-			<th>Department</th>
-			<th>Book Name</th>
-			<th>Author</th>
-			<th>Publisher</th>
-			<th>Books Available</th>
-			<th>Add to Wishlist</th>
-			</tr>";
-			//-create  while loop and loop through result set 
-			while($row=mysqli_fetch_array($result))
-			{ 
-				echo "<tr>
-				<td align='center'>{$row['bid']}</td>
-				<td align='center'>{$row['department']}</td>
-				<td align='center'>{$row['bookname']}</td>
-				<td align='center'>{$row['author']}</td>
-				<td align='center'>{$row['publisher']}</td>
-				<td align='center'>{$row['bookcount']}</td>
-				<td><center><button type='button' onclick='location.href=\'wishlist.php\''> + </button></center></td>
-				</tr>";
-			}
-		}
-		else
-		{ 
-			echo  "<p>Please enter a search query</p>"; 
-		}  
-	} 
+			
+			 echo "<div style=\"padding:80px;\">";
+	         while($row = $result->fetch_assoc()) {
+				 $bid=$row['bookId'];
+		         $bkname=$row['bookname'];
+		         $author=$row['author'];
+				 $publisher=$row['publisher'];
+				 
+		     echo "<div>
+		<div style='border-top:1px solid;'></div>
+		<h2>Book Name:\t<a href=\"display.php?bid=$bid & bkname=$bkname & author=$author & publisher=$publisher\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='blue'\" <span style='color:blue';> {$row['bookname']}</a></span></h2>
+		<p><b>Author name:</b>\t{$row['author']}</p>
+		<p><b>Publisher:</b>\t{$row['publisher']}</p>
+		<div style='border-bottom:1px solid;'></div></div>";
+	}
+	echo "</div>";
+
+	//#ff9900 - on hover colour
+    }	
+	else
+	{ 
+		echo  "<p>Please enter a search query</p>"; 
+	}  
+  } 
+  
 ?> 
 </body>
 </html>

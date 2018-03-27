@@ -9,7 +9,7 @@
     <div class="hbox-right right-header">
         <div style="float:right;"><?php include 'session.php'?> |
             <form method="post" class="signout" action="logout.php">
-                <button>Sign Out</button>
+                <button style=>Sign Out</button>
             </form>
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
 //book recommendation algorithm
 
+//include 'display.php';
+
 //connect to the database
  $connection=mysqli_connect("localhost","root","");
  
