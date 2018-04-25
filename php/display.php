@@ -40,19 +40,19 @@ $finalArray=array();
 $finalArray1=array();
 
 //Fetch the result into an array
-//List of users who borrowed pvbookid	 
+//List of users who borrowed pvbookid-say bk	 
     while ($row = $borrowedUsersSet->fetch_assoc()) 
 	{	
         $borrowedUsersArray[] = $row;
 		 
-		//Get borrowed time of book with id pvbookid
+		//Get borrowed time of bk 
 		$bookBorrowedTime=$row['borrowedTime'];
 		
-		//select books borrowed after b3
+		//select books borrowed after borrowing book bk
 		$query2 = "SELECT * FROM booktransactions where `userId`='{$row['userId']}' and `borrowedTime`>'$bookBorrowedTime'";
 		$eachUserSet=mysqli_query($connection, $query2);
 	
-	    //each book borrowed after b3
+	    //each book borrowed after bk
         while ($row2 = $eachUserSet->fetch_assoc()) 
 	    {
 	      //adding elements to the array
@@ -80,7 +80,7 @@ $finalArray1=array();
 			  $uid=$val['userId'];
 			  $time=$val['borrowedTime'];
 			  
-			  //if user is present in borrowed list, calculate average time difference between b3 and other books
+			  //if user is present in borrowed list, calculate average time difference between bk and other books
 			  if(in_array($uid, array_column($borrowedUsersArray, 'userId')))
 			  {
 				  //echo $avgT1;
@@ -187,26 +187,34 @@ function sortByDistance($a, $b)
     if ($a == $b) return 0;
     return ($a < $b) ? -1 : 1;
 }
-
+//echo "Students who borrowed this book also borrowed:";
 usort($finalArray, 'sortByDistance');
 echo "<div style=\"padding:80px;\">";
-echo "<h1 style='color:#6800b3;'>Recommended books for you:</h1>";
-foreach($finalArray as $dispVal)
+echo "<h1 style='color:#6800b3;' title=\"If you are interested in $bkname, then you would probably be interested in these recommended books too. Borrow histories of users similar to you show that, they borrowed these recommended books at some point of time, after borrowing $bkname.\">Users who borrowed $bkname also borrowed:</h1>";
+echo "<html><center>
+          <table border=1 style='width:80%'>
+           <tr>
+           <th style='color:#ec5f5f;'><h2>Book Name</h2></th>
+		   <th style='color:#ec5f5f;'><h2>Author</h2></th>
+		   <th style='color:#ec5f5f;'><h2>Publisher</h2></th>
+		   </tr>";
+$finalArrayX = array_slice($finalArray,0, 5);		   
+foreach($finalArrayX as $dispVal)
 {
 	$dispValBid=$dispVal['bookId'];
 	$retrieveBookQuery = "SELECT bookname,author,publisher FROM booksdb where `bookId`='$dispValBid'";
 	$retrieveQueryResult=mysqli_query($connection, $retrieveBookQuery);
-	 
-	 while ($row = $retrieveQueryResult->fetch_assoc()) {
+	
+	while ($row = $retrieveQueryResult->fetch_assoc()) {
 		
-		echo "<div>
-		<div style='border-top:1px solid;'></div>
-		<h2>Book Name:\t<span style='color:blue';\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='blue'\"> {$row['bookname']}</span></h2>
-		<p><b>Author name:</b>\t{$row['author']}</p>
-		<p><b>Publisher:</b>\t{$row['publisher']}</p>
-		<div style='border-bottom:1px solid;'></div></div>";
+		echo "<tr>
+		  <td align='center'><b><span style='color:black';\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='black'\">{$row['bookname']}</span></b></td>
+		  <td align='center'><b><span style='color:black';\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='black'\">{$row['author']}</span></b></td>
+		  <td align='center'><b><span style='color:black';\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='black'\">{$row['publisher']}</span></b></td>
+	      </tr>";
 	}	
 }
+echo "</tr></center></table></html>";
 echo "</div>";
 	
 ?>

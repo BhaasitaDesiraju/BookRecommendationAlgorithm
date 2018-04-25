@@ -8,7 +8,7 @@
  $database=mysqli_select_db($connection, "librvry");
 
 //generate a list of users who borrowed a book b3
-$query1="SELECT * FROM booktransactions where `bookId`='403'";
+$query1="SELECT * FROM booktransactions where `bookId`='452'";
 $borrowedUsersSet=mysqli_query($connection, $query1);
 
 

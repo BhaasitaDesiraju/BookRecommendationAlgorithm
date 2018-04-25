@@ -29,7 +29,7 @@
 			
 			//select database
 			$database=mysqli_select_db($connection, "librvry");
-			$query="SELECT * FROM booksdb where (bookname LIKE '% ".$name." %' OR bookname LIKE '% ".$name."') OR 
+			$query="SELECT * FROM booksdb where (bookName LIKE '% ".$name." %' OR bookName LIKE '% ".$name."') OR 
 			(author LIKE '% ".$name." %' OR author LIKE '% ".$name."') OR 
 			(publisher LIKE '% ".$name." %' OR publisher LIKE '% ".$name."')";
 			
@@ -39,13 +39,13 @@
 			 echo "<div style=\"padding:80px;\">";
 	         while($row = $result->fetch_assoc()) {
 				 $bid=$row['bookId'];
-		         $bkname=$row['bookname'];
+		         $bkname=$row['bookName'];
 		         $author=$row['author'];
 				 $publisher=$row['publisher'];
 				 
 		     echo "<div>
 		<div style='border-top:1px solid;'></div>
-		<h2>Book Name:\t<a href=\"display.php?bid=$bid & bkname=$bkname & author=$author & publisher=$publisher\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='blue'\" <span style='color:blue';> {$row['bookname']}</a></span></h2>
+		<h2>Book Name:\t<a href=\"display.php?bid=$bid & bkname=$bkname & author=$author & publisher=$publisher\" onMouseOver=\"this.style.color='#ffb500'\" onMouseOut=\"this.style.color='blue'\" <span style='color:blue';> {$row['bookName']}</a></span></h2>
 		<p><b>Author name:</b>\t{$row['author']}</p>
 		<p><b>Publisher:</b>\t{$row['publisher']}</p>
 		<div style='border-bottom:1px solid;'></div></div>";
