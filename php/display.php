@@ -5,7 +5,6 @@
 </head>
 <body bgcolor="#fcf4e8">
 <?php include 'header.php';
-	//echo "Page under constuction<br>";
 	$pvbookid = $_GET['bid'];
 	$bkname = $_GET['bkname'];
 	$author = $_GET['author'];
@@ -13,12 +12,10 @@
 	
 	echo "<center>";
 	echo "<h1 style='color:#6800b3;'>You are looking at:</h1>";
-	//echo "<div style=\"padding:80px;\">";
 	echo "<h3><span style='color:#ec5f5f;'>Book Name:</span> $bkname</h3>";
 	echo "<h3><span style='color:#ec5f5f;'>Author:</span> $author</h3>";
 	echo "<h3><span style='color:#ec5f5f;'>Publisher:</span> $publisher</h3>";
 	echo "</center>";
-	//echo "</div>";
 	
 //connect to the database
  $connection=mysqli_connect("localhost","root","");
